@@ -7,9 +7,9 @@ public class Program
     {
         // Declaración variables
 
-       const decimal sueldoBase = 800000; // Sueldo base
+       const decimal sueldoBase = 800000; // Sueldo base, se puede asignar cualquier valor
        const decimal porcentajeComi = 0.10m; // Porcentaje 10% de comisión por cada venta
-        const decimal ObjetivoMes = 100000;
+        const decimal ObjetivoMes = 1000000;
        
 
         // Solicitud de datos por pantalla

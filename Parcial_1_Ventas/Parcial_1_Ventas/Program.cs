@@ -6,8 +6,9 @@ public class Program
     {
         // Declaración variables
 
-       const decimal sueldoBase = 80000; // 
-        const decimal porcentajeComi = 0.10m; // Porcentaje 10% de comisión por cada venta
+       const decimal sueldoBase = 80000; // Sueldo base
+       const decimal porcentajeComi = 0.10m; // Porcentaje 10% de comisión por cada venta
+        const decimal ObjetivoMes = 100000;
        
 
         // Solicitud de datos por pantalla
@@ -34,8 +35,19 @@ public class Program
         // Promedio de comisiones
         decimal comisiones = (TotalComision / 3);
 
+        //Calculo de ventas
+        decimal TotalVentas = venta1 + venta2 + venta3;
 
+        // Beneficio extra
+        decimal BonoExtra = (TotalVentas >= ObjetivoMes) ? 100000 : 0; 
+        decimal Beneficio = devengado + BonoExtra;
 
+        Console.WriteLine("\nResultados:");
+        Console.WriteLine($"Total de comisiones: {TotalComision:C}");
+        Console.WriteLine($"Total recibido en el mes (sueldo base + comisiones): {devengado:C}");
+        Console.WriteLine($"Promedio de las comisiones: {comisiones:C}");
+        Console.WriteLine($"Beneficio extra obtenido: {(BonoExtra > 0 ? BonoExtra.ToString("C") : "No")}");
+        Console.WriteLine($"Total con beneficio extra (si aplica): {Beneficio:C}");
 
 
 

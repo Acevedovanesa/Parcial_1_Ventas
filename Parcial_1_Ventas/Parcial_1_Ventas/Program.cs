@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 
 public class Program
 {
@@ -6,7 +7,7 @@ public class Program
     {
         // Declaración variables
 
-       const decimal sueldoBase = 80000; // Sueldo base
+       const decimal sueldoBase = 800000; // Sueldo base
        const decimal porcentajeComi = 0.10m; // Porcentaje 10% de comisión por cada venta
         const decimal ObjetivoMes = 100000;
        
@@ -39,15 +40,34 @@ public class Program
         decimal TotalVentas = venta1 + venta2 + venta3;
 
         // Beneficio extra
-        decimal BonoExtra = (TotalVentas >= ObjetivoMes) ? 100000 : 0; 
+        decimal BonoExtra = (TotalVentas >= ObjetivoMes) ? 1000000 : 0;
+        
+        
+        if (BonoExtra < 1000000)
+        {
+            BonoExtra = 0;
+        }
+
+       else if (BonoExtra >= 1000000)
+        {
+            BonoExtra = 100000;
+        }
+
         decimal Beneficio = devengado + BonoExtra;
 
-        Console.WriteLine("\nResultados:");
-        Console.WriteLine($"Total de comisiones: {TotalComision:C}");
+
+        Console.WriteLine("Resumen Total Ganado:");
+
+        Console.WriteLine($"Total de Comisiones: {TotalComision:C}");
+
         Console.WriteLine($"Total recibido en el mes (sueldo base + comisiones): {devengado:C}");
+
         Console.WriteLine($"Promedio de las comisiones: {comisiones:C}");
-        Console.WriteLine($"Beneficio extra obtenido: {(BonoExtra > 0 ? BonoExtra.ToString("C") : "No")}");
-        Console.WriteLine($"Total con beneficio extra (si aplica): {Beneficio:C}");
+
+        Console.WriteLine($"Beneficio extra obtenido: {(BonoExtra < ObjetivoMes ? BonoExtra.ToString("C") : "No")}");
+
+        Console.WriteLine($"Total con beneficio extra: {Beneficio:C}");
+
 
 
 
